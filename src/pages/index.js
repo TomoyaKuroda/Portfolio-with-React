@@ -19,7 +19,7 @@ const IndexPage = ({mobile}) => {
             subheader:''
         }
     }
-    const [state, dispatch] = useReducer(heroReducer, {background: '', initialState});
+    const [state, dispatch] = useReducer(heroReducer, initialState);
 
     const updateBackground = (background) => {
         dispatch({
@@ -65,7 +65,7 @@ const IndexPage = ({mobile}) => {
                                     Game, Mountaineering, and Learning!
                                 </Header>
                                 <p style={{fontSize: '1.33em'}}>
-                                    I enjoy playing game. Also I love to climb mountain and take beautiful pictures.
+                                    I enjoy playing strategy games such as <a href="https://civilization.com">Civilization</a>. Also I love to climb mountain and take beautiful pictures.
                                     Moreover, I like to learn skills actively.
                                 </p>
                             </Grid.Column>
