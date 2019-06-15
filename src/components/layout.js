@@ -14,7 +14,6 @@ import {
     Menu,
     Responsive,
     Segment,
-    Segment,
     Sidebar,
     Visibility,
 } from 'semantic-ui-react'
@@ -193,7 +192,6 @@ const HomepageLayout = ({children}) => (
 HomepageLayout.getInitialProps = async ({ req }) => {
     const md = new MobileDetect(req.headers["user-agent"]);
     const isMobileFromSSR = !!md.mobile();
-
     return {
         isMobileFromSSR,
         deviceInfo: {
