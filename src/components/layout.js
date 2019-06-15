@@ -16,7 +16,7 @@ import {
     Visibility,
 } from 'semantic-ui-react'
 import Footer from "./footer";
-import heroContext from "../contexts/heroContext";
+import context from "../contexts/context";
 import HeaderMenu from "./headerMenu";
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
@@ -32,13 +32,13 @@ const getWidth = () => {
  * such things.
  */
 const HomepageHeading = ({ mobile }) => {
-    const context = useContext(heroContext)
+    const headingContext = useContext(context)
 
 return    (
         <Container text>
             <Header
                 as='h1'
-                content={context.headers.header}
+                content={headingContext.headers.header}
                 inverted
                 style={{
                     fontSize: mobile ? '2em' : '4em',
@@ -49,7 +49,7 @@ return    (
             />
             <Header
                 as='h2'
-                content={context.headers.subheader}
+                content={headingContext.headers.subheader}
                 inverted
                 style={{
                     fontSize: mobile ? '1.5em' : '1.7em',
@@ -73,7 +73,7 @@ const DesktopContainer = (props) => {
     const hideFixedMenu = () => setFixed(false)
     const showFixedMenu = () => setFixed(true)
     const { children } = props
-    const context = useContext(heroContext)
+    const containerContext = useContext(context)
         return (
 
             <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -85,7 +85,7 @@ const DesktopContainer = (props) => {
                     <Segment
                         inverted
                         textAlign='center'
-                        style={{ minHeight: 800, padding: '1em 0em' ,backgroundImage: `url(${context.background})`, backgroundSize: 'cover'}}
+                        style={{ minHeight: 800, padding: '1em 0em' ,backgroundImage: `url(${containerContext.background})`, backgroundSize: 'cover'}}
                         vertical
                     >
                         <Menu
@@ -120,7 +120,7 @@ const MobileContainer  = (props) => {
     const handleSidebarHide = () => setSidebarOpened(false)
     const handleToggle = () => setSidebarOpened(true)
     const { children } = props
-    const context = useContext(heroContext)
+    const containerContext = useContext(context)
 
         return (
             <Responsive
@@ -144,7 +144,7 @@ const MobileContainer  = (props) => {
                     <Segment
                         inverted
                         textAlign='center'
-                        style={{ minHeight: 350, padding: '1em 0em', backgroundImage: `url(${context.background})`, objectFit: 'cover' }}
+                        style={{ minHeight: 350, padding: '1em 0em', backgroundImage: `url(${containerContext.background})`, objectFit: 'cover' }}
                         vertical
                     >
                         <Container>

@@ -1,11 +1,13 @@
 import React, {Component, createContext} from "react";
 
 
-const HeroContext = createContext({
+const Context = createContext({
     backgroundImage:'',
     headers:{header:'', subheader:''},
+    page:'',
     updateBackground:(background)=>{},
-    updateHeaders:(headers)=>{}
+    updateHeaders:(headers)=>{},
+    currentPage:(page)=>{}
 })
 
-export default HeroContext;
+export default Context;

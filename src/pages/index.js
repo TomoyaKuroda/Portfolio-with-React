@@ -6,9 +6,9 @@ import SEO from "../components/seo"
 import {Button, Grid, Header, Image, Segment} from "semantic-ui-react";
 import background from '../images/background.jpg'
 import profileImage from '../images/profile.jpg'
-import HeroContext from "../contexts/heroContext";
-import heroReducer from "../contexts/heroReducer";
-import {UPDATE_BACKGROUND, UPDATE_HEADERS} from "../contexts/types";
+import Context from "../contexts/context";
+import heroReducer from "../contexts/reducer";
+import {CURRENT_PAGE, UPDATE_BACKGROUND, UPDATE_HEADERS} from "../contexts/types";
 
 const IndexPage = () => {
 
@@ -17,7 +17,8 @@ const IndexPage = () => {
         headers:{
             header:'',
             subheader:''
-        }
+        },
+        page:''
     }
     const [state, dispatch] = useReducer(heroReducer, initialState);
 
@@ -36,15 +37,24 @@ const IndexPage = () => {
         })
     };
 
+    const currentPage=(page)=>{
+        dispatch({
+            type:CURRENT_PAGE,
+            payload:page
+        })
+    }
+
     useEffect(() => {
         updateBackground(background);
         updateHeaders(headers)
-    },[]);
+        currentPage('/')
+    },);
     return (
-        <HeroContext.Provider
+        <Context.Provider
             value={{
                 background: state.background,
-                headers: state.headers
+                headers: state.headers,
+                page:state.page
             }}>
             <Layout>
                 <SEO title="Home"/>
@@ -81,7 +91,7 @@ const IndexPage = () => {
                     </Grid>
                 </Segment>
             </Layout>
-        </HeroContext.Provider>
+        </Context.Provider>
     )
 };
 

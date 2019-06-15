@@ -1,11 +1,11 @@
 import {graphql, Link, StaticQuery} from "gatsby"
-import React from "react"
+import React, {useContext} from "react"
 import {Menu} from "semantic-ui-react";
-import { globalHistory } from "@reach/router"
+import context from "../contexts/context";
 
 
 const HeaderMenu = (props) => {
-    const path = globalHistory.location.pathname
+    const menuContext = useContext(context)
 return    (
 
         <StaticQuery
@@ -23,8 +23,8 @@ return    (
                     <Menu.Item as='a' header>
                         {data.site.siteMetadata.title}
                     </Menu.Item>
-                    <Menu.Item active={path==='/'}><Link to="/">Home</Link></Menu.Item>
-                    <Menu.Item active={path==='/about/'}><Link to="/about/">About Me</Link></Menu.Item>
+                    <Menu.Item active={menuContext.page==='/'}><Link to="/">Home</Link></Menu.Item>
+                    <Menu.Item active={menuContext.page==='/about/'}><Link to="/about/">About Me</Link></Menu.Item>
                     <Menu.Item>Projects page</Menu.Item>
                     <Menu.Item>Services page</Menu.Item>
                     <Menu.Item>Contact Me</Menu.Item>
