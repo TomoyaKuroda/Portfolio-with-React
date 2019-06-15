@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import React, {Component, useContext, useState} from 'react'
+import MobileDetect from "mobile-detect";
+
 import {
     Button,
     Container,
@@ -12,6 +14,7 @@ import {
     Menu,
     Responsive,
     Segment,
+    Segment,
     Sidebar,
     Visibility,
 } from 'semantic-ui-react'
@@ -23,9 +26,10 @@ import HeaderMenu from "./headerMenu";
 // For more advanced usage please check Responsive docs under the "Usage" section.
 const getWidth = () => {
     const isSSR = typeof window === 'undefined'
-
-    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+    return isSSR ? Responsive.onlyMobile.maxWidth : window.innerWidth
 }
+
+
 
 /* eslint-disable react/no-multi-comp */
 /* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
@@ -179,15 +183,26 @@ ResponsiveContainer.propTypes = {
 }
 
 const HomepageLayout = ({children}) => (
-    <ResponsiveContainer >
+    <ResponsiveContainer>
         <menu>{children}</menu>
-
-
-
 <Footer/>
-
     </ResponsiveContainer>
 
 )
+
+HomepageLayout.getInitialProps = async ({ req }) => {
+    const md = new MobileDetect(req.headers["user-agent"]);
+    const isMobileFromSSR = !!md.mobile();
+
+    return {
+        isMobileFromSSR,
+        deviceInfo: {
+            mobile: md.mobile(),
+            tablet: md.tablet(),
+            os: md.os(),
+            userAgent: md.userAgent()
+        }
+    };
+};
 
 export default HomepageLayout
