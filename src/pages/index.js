@@ -3,7 +3,7 @@ import {Link} from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {Button, Grid, Header, Image, Segment} from "semantic-ui-react";
+import {Button, Container, Divider, Grid, Header, Image, Segment} from "semantic-ui-react";
 import background from '../images/background.jpg'
 import profileImage from '../images/profile.jpg'
 import Context from "../contexts/context";
@@ -86,6 +86,43 @@ const IndexPage = () => {
                         <Grid.Row>
                             <Grid.Column textAlign='center'>
                                 <Link to="/about/"><Button size='huge'>Check My Profile</Button></Link>
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                </Segment>
+                <Segment style={{ padding: '8em 0em' }} vertical>
+                    <Container text>
+                        <Header as='h3' style={{ fontSize: '2em' }}>
+                            I worked on several projects
+                        </Header>
+                        <p style={{ fontSize: '1.33em' }}>
+                            I developed WordPress websites for clients on a team. A designer created HTML and CSS, and I added JavaScript and WordPress functions to the website.
+                        </p>
+                        <Button as='a' size='large'>
+                            Check Projects
+                        </Button>
+
+                        <Divider/>
+
+                        <Header as='h3' style={{ fontSize: '2em' }}>
+                            I developed some web applications
+                        </Header>
+                        <p style={{ fontSize: '1.33em' }}>
+                            I love to learn new skills, so I studied by myself and created web applications.
+                        </p>
+                        <Button as='a' size='large'>
+                            Check Services
+                        </Button>
+                    </Container>
+                </Segment>
+                <Segment style={{ padding: '0em' }} vertical>
+                    <Grid celled='internally' columns='equal' stackable>
+                        <Grid.Row textAlign='center'>
+                            <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
+                                <Header as='h3' style={{ fontSize: '2em' }}>
+                                    Do you want to contact me?
+                                </Header>
+                                <Button primary>Connect</Button>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
