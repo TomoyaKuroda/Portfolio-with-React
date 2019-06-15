@@ -15,10 +15,9 @@ import {
     Sidebar,
     Visibility,
 } from 'semantic-ui-react'
-import Background from "../images/background.jpg";
 import Footer from "./footer";
 import heroContext from "../contexts/heroContext";
-
+import HeaderMenu from "./headerMenu";
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
 // For more advanced usage please check Responsive docs under the "Usage" section.
@@ -69,7 +68,7 @@ HomepageHeading.propTypes = {
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
  * It can be more complicated, but you can create really flexible markup.
  */
-const DesktopContainer= (props) => {
+const DesktopContainer = (props) => {
     const [fixed, setFixed]=useState(false)
     const hideFixedMenu = () => setFixed(false)
     const showFixedMenu = () => setFixed(true)
@@ -98,16 +97,7 @@ const DesktopContainer= (props) => {
                             style={{ borderBottom:'initial' , borderTop:'initial'}}
                         >
                             <Container>
-                                <Menu.Item as='a' >
-                                    Tomoya Kuroda
-                                </Menu.Item>
-                                <Menu.Item as='a' active>
-                                    Home
-                                </Menu.Item>
-                                <Menu.Item as='a'>About Me</Menu.Item>
-                                <Menu.Item as='a'>Projects page</Menu.Item>
-                                <Menu.Item as='a'>Services page</Menu.Item>
-                                <Menu.Item as='a'>Contact Me</Menu.Item>
+                                <HeaderMenu/>
                             </Container>
                         </Menu>
                         <HomepageHeading />
@@ -125,16 +115,12 @@ DesktopContainer.propTypes = {
     children: PropTypes.node,
 }
 
-class MobileContainer extends Component {
-    state = {}
-
-    handleSidebarHide = () => this.setState({ sidebarOpened: false })
-
-    handleToggle = () => this.setState({ sidebarOpened: true })
-
-    render() {
-        const { children } = this.props
-        const { sidebarOpened } = this.state
+const MobileContainer  = (props) => {
+    const [sidebarOpened, setSidebarOpened]=useState(false)
+    const handleSidebarHide = () => setSidebarOpened(false)
+    const handleToggle = () => setSidebarOpened(true)
+    const { children } = props
+    const context = useContext(heroContext)
 
         return (
             <Responsive
@@ -147,29 +133,23 @@ class MobileContainer extends Component {
                     as={Menu}
                     animation='push'
                     inverted
-                    onHide={this.handleSidebarHide}
+                    onHide={handleSidebarHide}
                     vertical
                     visible={sidebarOpened}
                 >
-                    <Menu.Item as='a' active>
-                        Home
-                    </Menu.Item>
-                    <Menu.Item as='a'>About Me</Menu.Item>
-                    <Menu.Item as='a'>Projects page</Menu.Item>
-                    <Menu.Item as='a'>Services page</Menu.Item>
-                    <Menu.Item as='a'>Contact Me</Menu.Item>
+                    <HeaderMenu/>
                 </Sidebar>
 
                 <Sidebar.Pusher dimmed={sidebarOpened}>
                     <Segment
                         inverted
                         textAlign='center'
-                        style={{ minHeight: 350, padding: '1em 0em', backgroundImage: `url(${Background})`, objectFit: 'cover' }}
+                        style={{ minHeight: 350, padding: '1em 0em', backgroundImage: `url(${context.background})`, objectFit: 'cover' }}
                         vertical
                     >
                         <Container>
                             <Menu inverted pointing secondary size='large'>
-                                <Menu.Item onClick={this.handleToggle}>
+                                <Menu.Item onClick={handleToggle}>
                                     <Icon name='sidebar' />
                                 </Menu.Item>
                             </Menu>
@@ -181,7 +161,6 @@ class MobileContainer extends Component {
                 </Sidebar.Pusher>
             </Responsive>
         )
-    }
 }
 
 MobileContainer.propTypes = {

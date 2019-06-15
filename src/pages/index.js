@@ -10,7 +10,7 @@ import HeroContext from "../contexts/heroContext";
 import heroReducer from "../contexts/heroReducer";
 import {UPDATE_BACKGROUND, UPDATE_HEADERS} from "../contexts/types";
 
-const IndexPage = ({mobile}) => {
+const IndexPage = () => {
 
     const initialState={
         background:'',
@@ -39,7 +39,7 @@ const IndexPage = ({mobile}) => {
     useEffect(() => {
         updateBackground(background);
         updateHeaders(headers)
-    });
+    },[]);
     return (
         <HeroContext.Provider
             value={{
@@ -75,7 +75,7 @@ const IndexPage = ({mobile}) => {
                         </Grid.Row>
                         <Grid.Row>
                             <Grid.Column textAlign='center'>
-                                <Link to="/page-2/"><Button size='huge'>Check My Profile</Button></Link>
+                                <Link to="/about/"><Button size='huge'>Check My Profile</Button></Link>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
