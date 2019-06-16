@@ -3,9 +3,9 @@ import {Link} from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {Button, Grid, Header, Image, Segment} from "semantic-ui-react";
+import {Button, Card, Container, Grid, Header, Icon, Image, Label, Segment} from "semantic-ui-react";
 import background from '../images/barrie_snow.jpg'
-import profileImage from '../images/profile.jpg'
+import profileImage from '../images/profile2.jpg'
 import Context from "../contexts/context";
 import heroReducer from "../contexts/reducer";
 import {CURRENT_PAGE, UPDATE_BACKGROUND, UPDATE_HEADERS} from "../contexts/types";
@@ -57,39 +57,24 @@ const AboutPage = () => {
                 page: state.page
             }}>
             <Layout>
-                <SEO title="Home"/>
-                <Segment style={{padding: '8em 0em'}} vertical>
-                    <Grid container stackable verticalAlign='middle'>
-                        <Grid.Row>
-                            <Grid.Column width={8}>
-                                <Header as='h3' style={{fontSize: '2em'}}>
-                                    Nice to meet you!
-                                </Header>
-                                <p style={{fontSize: '1.33em'}}>
-                                    Hello! I'm Tomoya. I have studied programming at Georgian College in Barrie,
-                                    Ontario
-                                    since 2017.
-
-                                </p>
-                                <Header as='h3' style={{fontSize: '2em'}}>
-                                    Game, Mountaineering, and Learning!
-                                </Header>
-                                <p style={{fontSize: '1.33em'}}>
-                                    I enjoy playing strategy games such as <a href="https://civilization.com">Civilization</a>. Also I love to climb mountain and take beautiful pictures.
-                                    Moreover, I like to learn skills actively.
-                                </p>
-                            </Grid.Column>
-                            <Grid.Column floated='right' width={6}>
-                                <Image bordered rounded size='large' src={profileImage}/>
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row>
-                            <Grid.Column textAlign='center'>
-                                <Link to="/about/"><Button size='huge'>Check My Profile</Button></Link>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
-                </Segment>
+                <SEO title="About Me"/>
+                <Container>
+                    <Card.Group centered>
+                            <Card>
+                                <Image src={profileImage} wrapped ui={false} />
+                                <Card.Content>
+                                    <Card.Header>Tomoya Kuroda</Card.Header>
+                                    <Card.Meta>
+                                        <span className='date'>Started living in Canada since Aug 2017</span>
+                                    </Card.Meta>
+                                    <Card.Description>
+                                        I am a Georgian College student living in Barrie.
+                                        I enjoy watching videos, playing games, and developing web applications.
+                                    </Card.Description>
+                                </Card.Content>
+                            </Card>
+                    </Card.Group>
+                </Container>
             </Layout>
         </Context.Provider>
     )

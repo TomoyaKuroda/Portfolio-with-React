@@ -122,7 +122,7 @@ const IndexPage = () => {
                                 <Header as='h3' style={{ fontSize: '2em' }}>
                                     Do you want to contact me?
                                 </Header>
-                                <Button primary>Connect</Button>
+                                <Button primary size='huge'>Connect</Button>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>

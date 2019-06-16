@@ -19,15 +19,24 @@ return    (
       }
     `}
             render={data => (
-                <>
+                <><Link to="/">
                     <Menu.Item as='a' header>
                         {data.site.siteMetadata.title}
                     </Menu.Item>
-                    <Menu.Item active={menuContext.page==='/'}><Link to="/">Home</Link></Menu.Item>
-                    <Menu.Item active={menuContext.page==='/about/'}><Link to="/about/">About Me</Link></Menu.Item>
+                </Link>
+                <Link to="/">
+                    <Menu.Item active={menuContext.page==='/'}>Home</Menu.Item>
+                </Link>
+                    <Link to="/about/">
+                    <Menu.Item active={menuContext.page==='/about/'}>About Me</Menu.Item>
+                    </Link>
+                    <Link to="/about/">
                     <Menu.Item>Projects page</Menu.Item>
+                    </Link>
                     <Menu.Item>Services page</Menu.Item>
+                    <Link to="/contact/">
                     <Menu.Item>Contact Me</Menu.Item>
+                    </Link>
                 </>)}
         />
     );
