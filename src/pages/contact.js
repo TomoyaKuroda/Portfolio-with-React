@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from "react"
+import React, {useEffect} from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -6,8 +6,6 @@ import background from '../images/email.jpg'
 import useHero from "../hooks/useHero";
 
 const ContactPage = () => {
-
-
     const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
 
     useEffect(() => {

@@ -1,30 +1,16 @@
-import {graphql, Link, StaticQuery} from "gatsby"
-import React, {useContext} from "react"
+import { Link} from "gatsby"
+import React from "react"
 import {Menu} from "semantic-ui-react";
-import {Context} from "../contexts/context";
 import useHero from "../hooks/useHero";
 
 
 const HeaderMenu = (props) => {
-  const [state,setState] = useContext(Context)
-  const {background, headers,page} = useHero()
+  const {page} = useHero()
 
 return    (
-
-        <StaticQuery
-            query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-            render={data => (
                 <><Link to="/">
                     <Menu.Item as='a' header>
-                        {data.site.siteMetadata.title}
+                        Tomoya Kuroda
                     </Menu.Item>
                 </Link>
                 <Link to="/">
@@ -43,8 +29,4 @@ return    (
                     <Menu.Item active={page==='/contact/'}>Contact Me</Menu.Item>
                     </Link>
                 </>)}
-        />
-    );
-}
-
 export default HeaderMenu

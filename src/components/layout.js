@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types'
-import React, {Component, useContext, useState} from 'react'
+import React, { useContext, useState} from 'react'
 import MobileDetect from "mobile-detect";
 
 import {
-    Button,
     Container,
-    Divider,
-    Grid,
     Header,
     Icon,
-    Image,
-    List,
     Menu,
     Responsive,
     Segment,
@@ -37,8 +32,7 @@ const getWidth = () => {
  * such things.
  */
 const HomepageHeading = ({ mobile }) => {
-    const [state,setState] = useContext(Context)
-    const {background, header,subheader,page} = useHero()
+    const {header,subheader,page} = useHero()
 
 return    (
         <Container text>
@@ -94,8 +88,7 @@ const DesktopContainer = (props) => {
     const hideFixedMenu = () => setFixed(false)
     const showFixedMenu = () => setFixed(true)
     const { children } = props
-    const [state,setState]  = useContext(Context)
-    const {background, headers,page} = useHero()
+    const {background} = useHero()
 
         return (
 
@@ -142,8 +135,7 @@ const MobileContainer  = (props) => {
     const handleSidebarHide = () => setSidebarOpened(false)
     const handleToggle = () => setSidebarOpened(true)
     const { children } = props
-    const [state,setState] = useContext(Context)
-    const {background, headers,page} = useHero()
+    const {background} = useHero()
 
 
         return (
@@ -152,7 +144,6 @@ const MobileContainer  = (props) => {
                 getWidth={getWidth}
                 maxWidth={Responsive.onlyMobile.maxWidth}
             >
-
                 <Sidebar
                     as={Menu}
                     animation='push'

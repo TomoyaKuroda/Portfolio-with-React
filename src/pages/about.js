@@ -1,9 +1,8 @@
-import React, {useEffect, useReducer} from "react"
-import {Link} from "gatsby"
+import React, {useEffect} from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {Button, Card, Container, Grid, Header, Icon, Image, Label, Segment} from "semantic-ui-react";
+import { Card, Container, Image} from "semantic-ui-react";
 import background from '../images/barrie_snow.jpg'
 import profileImage from '../images/profile2.jpg'
 

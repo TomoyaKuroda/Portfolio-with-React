@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer, useContext} from "react"
+import React, {useEffect} from "react"
 import {Link} from "gatsby"
 
 import Layout from "../components/layout"
@@ -11,12 +11,9 @@ import useHero from "../hooks/useHero";
 const IndexPage = () => {
 
     const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
-    
-    
 
     useEffect(() => {
         updateBackground(background)
-        // let headers ={header: 'Tomoya Kuroda', subheader: 'Junior Developer'}
         updateHeader('Tomoya Kuroda')
         updateSubheader('Junior Developer')
         updatePage('/')
