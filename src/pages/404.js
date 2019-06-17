@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import background from '../images/barrie_snow.jpg'
+import background from '../images/404.jpg'
 import useHero from "../hooks/useHero";
 const NotFoundPage = () => {
 
