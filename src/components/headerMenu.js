@@ -30,12 +30,14 @@ return    (
                     <Link to="/about/">
                     <Menu.Item active={menuContext.page==='/about/'}>About Me</Menu.Item>
                     </Link>
-                    <Link to="/about/">
-                    <Menu.Item>Projects page</Menu.Item>
+                    <Link to="/project/">
+                    <Menu.Item active={menuContext.page==='/project/'}>Projects page</Menu.Item>
                     </Link>
-                    <Menu.Item>Services page</Menu.Item>
+                    <Link to="/service/">
+                    <Menu.Item active={menuContext.page==='/service/'}>Services page</Menu.Item>
+                    </Link>
                     <Link to="/contact/">
-                    <Menu.Item>Contact Me</Menu.Item>
+                    <Menu.Item active={menuContext.page==='/contact/'}>Contact Me</Menu.Item>
                     </Link>
                 </>)}
         />

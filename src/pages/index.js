@@ -98,10 +98,10 @@ const IndexPage = () => {
                         <p style={{ fontSize: '1.33em' }}>
                             I developed WordPress websites for clients on a team. A designer created HTML and CSS, and I added JavaScript and WordPress functions to the website.
                         </p>
-                        <Button as='a' size='large'>
+                        <Link to="/project/"><Button as='a' size='large'>
                             Check Projects
                         </Button>
-
+                        </Link>
                         <Divider/>
 
                         <Header as='h3' style={{ fontSize: '2em' }}>
@@ -110,9 +110,12 @@ const IndexPage = () => {
                         <p style={{ fontSize: '1.33em' }}>
                             I love to learn new skills, so I studied by myself and created web applications.
                         </p>
+
+                        <Link to="/service/">
                         <Button as='a' size='large'>
                             Check Services
                         </Button>
+                        </Link>
                     </Container>
                 </Segment>
                 <Segment style={{ padding: '0em' }} vertical>
@@ -122,7 +125,9 @@ const IndexPage = () => {
                                 <Header as='h3' style={{ fontSize: '2em' }}>
                                     Do you want to contact me?
                                 </Header>
+                                <Link to="/contact/">
                                 <Button primary size='huge'>Connect</Button>
+                                </Link>
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
