@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useContext, useState} from 'react'
+import React, {  useState} from 'react'
 import MobileDetect from "mobile-detect";
 
 import {
@@ -13,7 +13,6 @@ import {
     Visibility,
 } from 'semantic-ui-react'
 import Footer from "./footer";
-import {Context} from "../contexts/context";
 import HeaderMenu from "./headerMenu";
 import EmailForm from "./emailForm";
 import useHero from '../hooks/useHero';
@@ -33,7 +32,6 @@ const getWidth = () => {
  */
 const HomepageHeading = ({ mobile }) => {
     const {header,subheader,page} = useHero()
-
 return    (
         <Container text>
             {page!=='/contact/' &&  (
@@ -193,14 +191,18 @@ ResponsiveContainer.propTypes = {
     children: PropTypes.node,
 }
 
-const HomepageLayout = ({children}) => (
+const HomepageLayout = ({children}) => {
+    const {header,subheader,page} = useHero()
+    if(header===undefined)
+    return <div></div>
+    else 
+return(
     <ResponsiveContainer>
         {children}
 <Footer/>
     </ResponsiveContainer>
-
 )
-
+}
 HomepageLayout.getInitialProps = async ({ req }) => {
     const md = new MobileDetect(req.headers["user-agent"]);
     const isMobileFromSSR = !!md.mobile();
