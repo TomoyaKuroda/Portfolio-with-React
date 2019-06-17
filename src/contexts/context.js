@@ -1,13 +1,30 @@
-import React, {Component, createContext} from "react";
+import React, {Component, createContext, useState} from "react";
 
 
-const Context = createContext({
-    backgroundImage:'',
+// const Context = createContext({
+//     backgroundImage:'',
+//     headers:{header:'', subheader:''},
+//     page:'',
+//     updateBackground:(background)=>{},
+//     updateHeaders:(headers)=>{},
+//     currentPage:(page)=>{}
+// })
+
+const Context = createContext([{}, ()=>{}])
+
+const initialState={
+    background:'',
     headers:{header:'', subheader:''},
-    page:'',
-    updateBackground:(background)=>{},
-    updateHeaders:(headers)=>{},
-    currentPage:(page)=>{}
-})
+    page:''
+}
 
-export default Context;
+const ContextProvider=(props)=>{
+    const [state,setState]=useState({initialState})
+    return (
+        <Context.Provider value={[state, setState]}>
+        {props.children}
+        </Context.Provider>
+    )
+}
+
+export {Context, ContextProvider};

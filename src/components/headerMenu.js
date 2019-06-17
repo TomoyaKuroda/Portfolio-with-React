@@ -1,11 +1,14 @@
 import {graphql, Link, StaticQuery} from "gatsby"
 import React, {useContext} from "react"
 import {Menu} from "semantic-ui-react";
-import context from "../contexts/context";
+import {Context} from "../contexts/context";
+import useHero from "../hooks/useHero";
 
 
 const HeaderMenu = (props) => {
-    const menuContext = useContext(context)
+  const [state,setState] = useContext(Context)
+  const {background, headers,page} = useHero()
+
 return    (
 
         <StaticQuery
@@ -25,19 +28,19 @@ return    (
                     </Menu.Item>
                 </Link>
                 <Link to="/">
-                    <Menu.Item active={menuContext.page==='/'}>Home</Menu.Item>
+                    <Menu.Item active={page==='/'}>Home</Menu.Item>
                 </Link>
                     <Link to="/about/">
-                    <Menu.Item active={menuContext.page==='/about/'}>About Me</Menu.Item>
+                    <Menu.Item active={page==='/about/'}>About Me</Menu.Item>
                     </Link>
                     <Link to="/project/">
-                    <Menu.Item active={menuContext.page==='/project/'}>Projects page</Menu.Item>
+                    <Menu.Item active={page==='/project/'}>Projects page</Menu.Item>
                     </Link>
                     <Link to="/service/">
-                    <Menu.Item active={menuContext.page==='/service/'}>Services page</Menu.Item>
+                    <Menu.Item active={page==='/service/'}>Services page</Menu.Item>
                     </Link>
                     <Link to="/contact/">
-                    <Menu.Item active={menuContext.page==='/contact/'}>Contact Me</Menu.Item>
+                    <Menu.Item active={page==='/contact/'}>Contact Me</Menu.Item>
                     </Link>
                 </>)}
         />

@@ -21,15 +21,16 @@ const EmailForm = () => {
 
     const sendEmail =(event)=> {
         let template_params = {
-            "reply_to": "reply_to_value",
-            "from_name": "from_name_value",
+            "reply_to": values.email,
+            "from_name": values.name,
             "to_name": "Tomoya Kuroda",
-            "message_html": "message_html_value"
+            "message_html": values.message
         }
 
         let service_id = "default_service";
         let template_id = "template_bI7QUFno";
-        emailjs.send(service_id, template_id, template_params, process.env.REACT_APP_EMAILJS_USERID)
+
+        emailjs.send(service_id, template_id, template_params, process.env.GATSBY_EMAILJS_USERID)
             .then(res=>{
                 console.log(res)
             })

@@ -18,9 +18,10 @@ import {
     Visibility,
 } from 'semantic-ui-react'
 import Footer from "./footer";
-import context from "../contexts/context";
+import {Context} from "../contexts/context";
 import HeaderMenu from "./headerMenu";
 import EmailForm from "./emailForm";
+import useHero from '../hooks/useHero';
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
 // For more advanced usage please check Responsive docs under the "Usage" section.
@@ -36,15 +37,16 @@ const getWidth = () => {
  * such things.
  */
 const HomepageHeading = ({ mobile }) => {
-    const headingContext = useContext(context)
+    const [state,setState] = useContext(Context)
+    const {background, headers,page} = useHero()
 
 return    (
         <Container text>
-            {headingContext.page!=='/contact/' &&  (
+            {page!=='/contact/' &&  (
                 <>
                 <Header
                     as='h1'
-                    content={headingContext.headers.header}
+                    content={headers.header}
                     inverted
                     style={{
                         fontSize: mobile ? '2em' : '4em',
@@ -55,7 +57,7 @@ return    (
                 />
                 <Header
                 as='h2'
-                content={headingContext.headers.subheader}
+                content={headers.subheader}
                 inverted
                 style={{
                 fontSize: mobile ? '1.5em' : '1.7em',
@@ -65,7 +67,7 @@ return    (
                 />
                 </>
                 )}
-            {headingContext.page==='/contact/' &&  (
+            {page==='/contact/' &&  (
                 <>
             <h1 style={{
                 fontSize: mobile ? '1.4em' : '2.8em',
@@ -92,7 +94,9 @@ const DesktopContainer = (props) => {
     const hideFixedMenu = () => setFixed(false)
     const showFixedMenu = () => setFixed(true)
     const { children } = props
-    const containerContext = useContext(context)
+    const [state,setState]  = useContext(Context)
+    const {background, headers,page} = useHero()
+
         return (
 
             <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
@@ -104,7 +108,7 @@ const DesktopContainer = (props) => {
                     <Segment
                         inverted
                         textAlign='center'
-                        style={{ minHeight: 800, padding: '1em 0em' ,backgroundImage: `url(${containerContext.background})`, backgroundSize: 'cover'}}
+                        style={{ minHeight: 800, padding: '1em 0em' ,backgroundImage: `url(${background})`, backgroundSize: 'cover'}}
                         vertical
                     >
                         <Menu
@@ -138,7 +142,9 @@ const MobileContainer  = (props) => {
     const handleSidebarHide = () => setSidebarOpened(false)
     const handleToggle = () => setSidebarOpened(true)
     const { children } = props
-    const containerContext = useContext(context)
+    const [state,setState] = useContext(Context)
+    const {background, headers,page} = useHero()
+
 
         return (
             <Responsive
@@ -162,7 +168,7 @@ const MobileContainer  = (props) => {
                     <Segment
                         inverted
                         textAlign='center'
-                        style={{ minHeight: 350, padding: '1em 0em', backgroundImage: `url(${containerContext.background})`, objectFit: 'cover' }}
+                        style={{ minHeight: 350, padding: '1em 0em', backgroundImage: `url(${background})`, objectFit: 'cover' }}
                         vertical
                     >
                         <Container>

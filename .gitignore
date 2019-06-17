@@ -1,5 +1,6 @@
 .idea
-.env
+# API keys
+.env.*
 
 # Logs
 logs

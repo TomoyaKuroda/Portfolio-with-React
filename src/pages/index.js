@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from "react"
+import React, {useEffect, useReducer, useContext} from "react"
 import {Link} from "gatsby"
 
 import Layout from "../components/layout"
@@ -6,56 +6,19 @@ import SEO from "../components/seo"
 import {Button, Container, Divider, Grid, Header, Image, Segment} from "semantic-ui-react";
 import background from '../images/background.jpg'
 import profileImage from '../images/profile.jpg'
-import Context from "../contexts/context";
-import heroReducer from "../contexts/reducer";
-import {CURRENT_PAGE, UPDATE_BACKGROUND, UPDATE_HEADERS} from "../contexts/types";
+import useHero from "../hooks/useHero";
 
 const IndexPage = () => {
 
-    const initialState={
-        background:'',
-        headers:{
-            header:'',
-            subheader:''
-        },
-        page:''
-    }
-    const [state, dispatch] = useReducer(heroReducer, initialState);
-
-    const updateBackground = (background) => {
-        dispatch({
-            type: UPDATE_BACKGROUND,
-            payload: background
-        })
-    };
-
+    const {updateBackground, updateHeaders,updatePage} = useHero()
     const headers = {header: 'Tomoya Kuroda', subheader: 'Junior Developer'};
-    const updateHeaders = (headers) => {
-        dispatch({
-            type: UPDATE_HEADERS,
-            payload: headers
-        })
-    };
-
-    const currentPage=(page)=>{
-        dispatch({
-            type:CURRENT_PAGE,
-            payload:page
-        })
-    }
 
     useEffect(() => {
-        updateBackground(background);
+        updateBackground(background)
         updateHeaders(headers)
-        currentPage('/')
+        updatePage('/')
     },);
     return (
-        <Context.Provider
-            value={{
-                background: state.background,
-                headers: state.headers,
-                page:state.page
-            }}>
             <Layout>
                 <SEO title="Home"/>
                 <Segment style={{padding: '8em 0em'}} vertical>
@@ -133,7 +96,6 @@ const IndexPage = () => {
                     </Grid>
                 </Segment>
             </Layout>
-        </Context.Provider>
     )
 };
 
