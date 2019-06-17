@@ -15,8 +15,8 @@ const ProjectPage = () => {
     useEffect(() => {
         updateBackground(background)
         updateHeader('I develop to change the world and make it a better place.')
-        updateSubheader('Tomoya Kuroda')
-        updatePage('/about/')
+        updateSubheader('Tomoya ')
+        updatePage('/project/')
     },);
 
     return (

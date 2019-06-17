@@ -5,7 +5,7 @@
  */
 import React from "react"
 import { ContextProvider } from "./src/contexts/context"
-require("semantic-ui-css/semantic.min.css")
+import 'semantic-ui-css/semantic.min.css'
 // You can delete this file if you're not using it
 
 export const wrapRootElement = ({ element }) => (
