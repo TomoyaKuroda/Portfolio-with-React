@@ -1,23 +1,14 @@
-import React, {Component, createContext, useState} from "react";
+import React, { createContext, useState} from "react";
+import background from '../images/background.jpg'
 
-
-// const Context = createContext({
-//     backgroundImage:'',
-//     headers:{header:'', subheader:''},
-//     page:'',
-//     updateBackground:(background)=>{},
-//     updateHeaders:(headers)=>{},
-//     currentPage:(page)=>{}
-// })
 
 const Context = createContext([{}, ()=>{}])
 
 const initialState={
-    background:'',
-    // headers:{header:'', subheader:''},
-    header:'',
-    subheader:'',
-    page:''
+    background:background,
+    header:'header',
+    subheader:'subheader',
+    page:'/'
 }
 
 const ContextProvider=(props)=>{
