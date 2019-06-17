@@ -1,47 +1,47 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Card, Container, Image} from "semantic-ui-react";
-import background from '../images/barrie_snow.jpg'
-import profileImage from '../images/profile2.jpg'
-
-import useHero from "../hooks/useHero";
+import {  Container, Item } from "semantic-ui-react"
+import background from "../images/project.jpg"
+import project1 from '../images/assist-on.png'
+import useHero from "../hooks/useHero"
 
 const ProjectPage = () => {
+  const {
+    updateBackground,
+    updateHeader,
+    updateSubheader,
+    updatePage,
+  } = useHero()
 
-    const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
+  useEffect(() => {
+    updateBackground(background)
+    updateHeader("I feel happy when I satisfy clients")
+    updateSubheader("")
+    updatePage("/project/")
+  })
 
-    useEffect(() => {
-        updateBackground(background)
-        updateHeader('I develop to change the world and make it a better place.')
-        updateSubheader('Tomoya ')
-        updatePage('/project/')
-    },);
-
-    return (
-            <Layout>
-                <SEO title="About Me"/>
-                <Container>
-                    <Card.Group centered>
-                            <Card>
-                                <Image src={profileImage} wrapped ui={false} />
-                                <Card.Content>
-                                    <Card.Header>Tomoya Kuroda</Card.Header>
-                                    <Card.Meta>
-                                        <span className='date'>Started living in Canada since Aug 2017</span>
-                                    </Card.Meta>
-                                    <Card.Description>
-                                        I am a Georgian College student living in Barrie.
-                                        I enjoy watching videos, playing games, and developing web applications.
-                                    </Card.Description>
-                                </Card.Content>
-                            </Card>
-                    </Card.Group>
-                </Container>
-            </Layout>
-    )
-};
-
+  return (
+    <Layout>
+      <SEO title="Projects" />
+      <Container style={{padding: '8em 0em'}}>
+        <Item.Group>
+          <Item>
+            <Item.Image size="medium" src={project1} />
+            <Item.Content>
+              <Item.Header as="a">WordPress</Item.Header>
+              <Item.Description>
+                <p>
+                We developed a WordPress website for a study abroad agency. I received HTML and CSS from a web designer, and I converted them into WordPress theme with adding JavaScript. <a href="http://assiston-toronto.com">Here</a> is the live link. 
+                </p>
+              </Item.Description>
+            </Item.Content>
+          </Item>
+        </Item.Group>
+      </Container>
+    </Layout>
+  )
+}
 
 export default ProjectPage

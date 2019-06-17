@@ -1,47 +1,47 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Card, Container, Image} from "semantic-ui-react";
-import background from '../images/barrie_snow.jpg'
-import profileImage from '../images/profile2.jpg'
-
-import useHero from "../hooks/useHero";
+import {  Container, Item } from "semantic-ui-react"
+import background from "../images/service.jpg"
+import service1 from '../images/Todo App.png'
+import useHero from "../hooks/useHero"
 
 const ServicePage = () => {
+  const {
+    updateBackground,
+    updateHeader,
+    updateSubheader,
+    updatePage,
+  } = useHero()
 
-    const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
+  useEffect(() => {
+    updateBackground(background)
+    updateHeader("I like to learn new skills and apply them")
+    updateSubheader("")
+    updatePage("/service/")
+  })
 
-    useEffect(() => {
-        updateBackground(background)
-        updateHeader('I develop to change the world and make it a better place.')
-        updateSubheader('Kuroda')
-        updatePage('/service/')
-    },);
-
-    return (
-            <Layout>
-                <SEO title="About Me"/>
-                <Container>
-                    <Card.Group centered>
-                            <Card>
-                                <Image src={profileImage} wrapped ui={false} />
-                                <Card.Content>
-                                    <Card.Header>Tomoya Kuroda</Card.Header>
-                                    <Card.Meta>
-                                        <span className='date'>Started living in Canada since Aug 2017</span>
-                                    </Card.Meta>
-                                    <Card.Description>
-                                        I am a Georgian College student living in Barrie.
-                                        I enjoy watching videos, playing games, and developing web applications.
-                                    </Card.Description>
-                                </Card.Content>
-                            </Card>
-                    </Card.Group>
-                </Container>
-            </Layout>
-    )
-};
-
+  return (
+    <Layout>
+      <SEO title="Projects" />
+      <Container style={{padding: '8em 0em'}}>
+        <Item.Group>
+          <Item>
+            <Item.Image size="medium" src={service1} />
+            <Item.Content>
+              <Item.Header as="a">React</Item.Header>
+              <Item.Description>
+                <p>
+                This is my first React application. <a href="https://condescending-mccarthy-88aaab.netlify.com/">Here</a> is the live link.
+                </p>
+              </Item.Description>
+            </Item.Content>
+          </Item>
+        </Item.Group>
+      </Container>
+    </Layout>
+  )
+}
 
 export default ServicePage
