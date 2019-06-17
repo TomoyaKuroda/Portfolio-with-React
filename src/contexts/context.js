@@ -14,7 +14,9 @@ const Context = createContext([{}, ()=>{}])
 
 const initialState={
     background:'',
-    headers:{header:'', subheader:''},
+    // headers:{header:'', subheader:''},
+    header:'',
+    subheader:'',
     page:''
 }
 

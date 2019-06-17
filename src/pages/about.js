@@ -11,12 +11,12 @@ import useHero from "../hooks/useHero";
 
 const AboutPage = () => {
 
-    const {updateBackground, updateHeaders,updatePage} = useHero()
-    const aboutHeaders = {header: "I develop to change the world and make it a better place.", subheader: 'Tomoya Kuroda'};
+    const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
 
     useEffect(() => {
         updateBackground(background)
-        updateHeaders(aboutHeaders)
+        updateHeader('I develop to change the world and make it a better place.')
+        updateSubheader('Tomoya Kuroda')
         updatePage('/about/')
     },);
 

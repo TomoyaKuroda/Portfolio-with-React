@@ -8,12 +8,12 @@ import useHero from "../hooks/useHero";
 const ContactPage = () => {
 
 
-    const {updateBackground, updateHeaders,updatePage} = useHero()
-    const headers = {header: '', subheader: ''};
+    const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
 
     useEffect(() => {
         updateBackground(background);
-        updateHeaders(headers)
+        updateHeader('')
+        updateSubheader('')
         updatePage('/contact/')
     },);
     return (

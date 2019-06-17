@@ -2,24 +2,21 @@ import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import useHero from "../hooks/useHero";
 import background from '../images/barrie_snow.jpg'
-
+import useHero from "../hooks/useHero";
 const NotFoundPage = () => {
 
-  const {updateBackground, updateHeaders,updatePage} = useHero()
-  const headers = {header: 'NOT FOUND', subheader: 'You just hit a route that doesn&#39;t exist... the sadness.'};
+  const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
 
-  useEffect(() => {
-      updateBackground(background);
-      updateHeaders(headers)
-      updatePage('/404/')
-  },);
+    useEffect(() => {
+        updateBackground(background);
+        updateHeader('NOT FOUND')
+        updateSubheader("You just hit a route that doesn't exist... the sadness.")
+        updatePage('/404/')
+    },);
 return (
   <Layout>
     <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   </Layout>
 )
 }

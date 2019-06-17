@@ -38,7 +38,7 @@ const getWidth = () => {
  */
 const HomepageHeading = ({ mobile }) => {
     const [state,setState] = useContext(Context)
-    const {background, headers,page} = useHero()
+    const {background, header,subheader,page} = useHero()
 
 return    (
         <Container text>
@@ -46,7 +46,7 @@ return    (
                 <>
                 <Header
                     as='h1'
-                    content={headers.header}
+                    content={header}
                     inverted
                     style={{
                         fontSize: mobile ? '2em' : '4em',
@@ -57,7 +57,7 @@ return    (
                 />
                 <Header
                 as='h2'
-                content={headers.subheader}
+                content={subheader}
                 inverted
                 style={{
                 fontSize: mobile ? '1.5em' : '1.7em',

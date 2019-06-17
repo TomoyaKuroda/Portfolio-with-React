@@ -10,14 +10,17 @@ import useHero from "../hooks/useHero";
 
 const IndexPage = () => {
 
-    const {updateBackground, updateHeaders,updatePage} = useHero()
-    const headers = {header: 'Tomoya Kuroda', subheader: 'Junior Developer'};
+    const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
+    
+    
 
     useEffect(() => {
         updateBackground(background)
-        updateHeaders(headers)
+        // let headers ={header: 'Tomoya Kuroda', subheader: 'Junior Developer'}
+        updateHeader('Tomoya Kuroda')
+        updateSubheader('Junior Developer')
         updatePage('/')
-    },);
+    });
     return (
             <Layout>
                 <SEO title="Home"/>

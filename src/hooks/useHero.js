@@ -8,8 +8,12 @@ const useHero=()=>{
         setState(state => ({ ...state, background: background }));
     }
 
-    function updateHeaders(headers){
-        setState(state => ({ ...state, headers: headers }));
+    function updateHeader(header){
+        setState(state => ({ ...state, header: header }));
+    }
+
+    function updateSubheader(subheader){
+        setState(state => ({ ...state, subheader: subheader }));
     }
 
     function updatePage(page){
@@ -18,10 +22,12 @@ const useHero=()=>{
 
     return{
         updateBackground,
-        updateHeaders,
+        updateHeader,
+        updateSubheader,
         updatePage,
         background:state.background,
-        headers:state.headers,
+        header:state.header,
+        subheader:state.subheader,
         page:state.page
     }
 }
