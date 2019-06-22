@@ -20,10 +20,10 @@ const HeaderMenu = props => {
         <Menu.Item active={page === "/about/"}>About Me</Menu.Item>
       </Link>
       <Link to="/project/">
-        <Menu.Item active={page === "/project/"}>Projects page</Menu.Item>
+        <Menu.Item active={page === "/project/"}>Projects</Menu.Item>
       </Link>
       <Link to="/service/">
-        <Menu.Item active={page === "/service/"}>Services page</Menu.Item>
+        <Menu.Item active={page === "/service/"}>Services</Menu.Item>
       </Link>
       <Link to="/contact/">
         <Menu.Item active={page === "/contact/"}>Contact Me</Menu.Item>

@@ -2,9 +2,10 @@ import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {  Container, Item } from "semantic-ui-react"
+import { Card, Container, Image, Statistic, Icon, Header } from "semantic-ui-react"
+
 import background from "../images/service.jpg"
-import service1 from '../images/Todo App.png'
+import service1 from "../images/Todo App.png"
 import useHero from "../hooks/useHero"
 
 const ServicePage = () => {
@@ -25,20 +26,16 @@ const ServicePage = () => {
   return (
     <Layout>
       <SEO title="Projects" />
-      <Container style={{padding: '8em 0em'}}>
-        <Item.Group>
-          <Item>
-            <Item.Image size="medium" src={service1} />
-            <Item.Content>
-              <Item.Header as="a">React</Item.Header>
-              <Item.Description>
-                <p>
-                This is my first React application. <a href="https://condescending-mccarthy-88aaab.netlify.com/">Here</a> is the live link.
-                </p>
-              </Item.Description>
-            </Item.Content>
-          </Item>
-        </Item.Group>
+      <Container  style={{padding: '4em 0em'}}>
+        <Header as='h1' textAlign='center'>I can offer following services</Header>
+        <Statistic.Group widths="two" style={{padding: '4em 0em'}}>
+          <Statistic>
+            <Statistic.Value text>Building API <br/>with Spring Boot and Node.js</Statistic.Value>
+          </Statistic>
+          <Statistic>
+            <Statistic.Value text>Building a frontend<br/> with React</Statistic.Value>
+          </Statistic>
+        </Statistic.Group>
       </Container>
     </Layout>
   )
