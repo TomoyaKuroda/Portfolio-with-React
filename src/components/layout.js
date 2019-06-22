@@ -158,6 +158,7 @@ const MobileContainer = props => {
             padding: "1em 0em",
             backgroundImage: `url(${background})`,
             objectFit: "cover",
+            backgroundSize: '100% 100%'
           }}
           vertical
         >
