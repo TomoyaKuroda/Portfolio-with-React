@@ -1,3 +1,10 @@
+ /**
+ * File name: useHero.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: custom hock for handling context
+ */
+
 import { useContext } from 'react';
 import { Context } from '../contexts/context';
 

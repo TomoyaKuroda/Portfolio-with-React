@@ -1,3 +1,10 @@
+ /**
+ * File name: 404.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: 404 page
+ */
+
 import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
@@ -8,6 +15,7 @@ const NotFoundPage = () => {
 
   const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
 
+  // update context
     useEffect(() => {
         updateBackground(background);
         updateHeader('NOT FOUND')

@@ -1,3 +1,10 @@
+ /**
+ * File name: footer.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: Footer component
+ */
+
 import React from "react"
 import {Container, Header, Segment} from "semantic-ui-react";
 

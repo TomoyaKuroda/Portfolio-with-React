@@ -1,3 +1,10 @@
+ /**
+ * File name: about.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: about me page
+ */
+
 import React, {useEffect} from "react"
 
 import Layout from "../components/layout"
@@ -12,6 +19,7 @@ const AboutPage = () => {
 
     const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
 
+    // update context
     useEffect(() => {
         updateBackground(background)
         updateHeader('I develop to change the world and make it a better place.')

@@ -6,8 +6,8 @@
 import React from "react"
 import { ContextProvider } from "./src/contexts/context"
 import 'semantic-ui-css/semantic.min.css'
-// You can delete this file if you're not using it
 
+// Context prvider for gatsby
 export const wrapRootElement = ({ element }) => (
   <ContextProvider>{element}</ContextProvider>
 )

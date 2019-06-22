@@ -1,3 +1,10 @@
+ /**
+ * File name: index.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: index page
+ */
+
 import React, {useEffect} from "react"
 import {Link} from "gatsby"
 
@@ -11,7 +18,8 @@ import useHero from "../hooks/useHero";
 const IndexPage = () => {
 
     const {updateBackground, updateHeader,updateSubheader,updatePage} = useHero()
-
+    
+    // update context
     useEffect(() => {
         updateBackground(background)
         updateHeader('Tomoya Kuroda')

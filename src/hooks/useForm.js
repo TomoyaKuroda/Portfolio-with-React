@@ -1,3 +1,10 @@
+ /**
+ * File name: useForm.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: custom hock for form
+ */
+
 import { useState } from 'react';
 
 export const useForm = (callback, initialState = {}, validate) => {

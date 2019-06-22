@@ -1,3 +1,10 @@
+ /**
+ * File name: project.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: project page
+ */
+
 import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
@@ -15,6 +22,7 @@ const ProjectPage = () => {
     updatePage,
   } = useHero()
 
+      // update context
   useEffect(() => {
     updateBackground(background)
     updateHeader("I feel happy when I satisfy clients")

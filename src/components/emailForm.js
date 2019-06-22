@@ -1,3 +1,10 @@
+ /**
+ * File name: EmailForm.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: Email component
+ */
+
 import React, { useState, useEffect } from "react"
 import { Button, Form, Message, TextArea } from "semantic-ui-react"
 import { useForm } from "../hooks/useForm"

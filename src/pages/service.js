@@ -1,11 +1,17 @@
+ /**
+ * File name: service.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: service page
+ */
+
 import React, { useEffect } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Card, Container, Image, Statistic, Icon, Header } from "semantic-ui-react"
+import {  Container,  Statistic,  Header } from "semantic-ui-react"
 
 import background from "../images/service.jpg"
-import service1 from "../images/Todo App.png"
 import useHero from "../hooks/useHero"
 
 const ServicePage = () => {
@@ -16,6 +22,7 @@ const ServicePage = () => {
     updatePage,
   } = useHero()
 
+      // update context
   useEffect(() => {
     updateBackground(background)
     updateHeader("I like to learn new skills and apply them")
@@ -33,7 +40,7 @@ const ServicePage = () => {
             <Statistic.Value text>Building API <br/>with Spring Boot and Node.js</Statistic.Value>
           </Statistic>
           <Statistic>
-            <Statistic.Value text>Building a frontend<br/> with React</Statistic.Value>
+            <Statistic.Value text>Building a frontend <br/>with React</Statistic.Value>
           </Statistic>
         </Statistic.Group>
       </Container>

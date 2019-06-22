@@ -1,3 +1,10 @@
+ /**
+ * File name: headerMenu.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: Header menu component
+ */
+
 import { Link } from "gatsby"
 import React from "react"
 import { Menu } from "semantic-ui-react"

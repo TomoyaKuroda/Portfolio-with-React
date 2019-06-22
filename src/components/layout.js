@@ -1,3 +1,11 @@
+ /**
+ * File name: layout.js
+ * Author's name: Tomoya 
+ * Web site name: Tomoya Kuroda
+ * File description: Layout component
+ * I refered to this layout https://react.semantic-ui.com/layouts/homepage/
+ */
+
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import MobileDetect from "mobile-detect"
@@ -52,6 +60,7 @@ const HomepageHeading = ({ mobile }) => {
           />
         </>
       )}
+      {/* show email form*/}
       {page === "/contact/" && (
         <>
           <h1
@@ -195,7 +204,7 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = ({ children }) => {
   const { header } = useHero()
-  // prefent getting undefined from context
+  // prevent getting undefined from context
   if (header === undefined) return <div></div>
   else
     return (
