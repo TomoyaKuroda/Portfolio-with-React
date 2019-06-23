@@ -32,7 +32,7 @@ const ServicePage = () => {
 
   return (
     <Layout>
-      <SEO title="Projects" />
+      <SEO title="Services" />
       <Container  style={{padding: '4em 0em'}}>
         <Header as='h1' textAlign='center'>I can offer following services</Header>
         <Statistic.Group widths="two" style={{padding: '4em 0em'}}>

@@ -22,7 +22,7 @@ const AboutPage = () => {
     // update context
     useEffect(() => {
         updateBackground(background)
-        updateHeader('I develop to change the world and make it a better place.')
+        updateHeader('I develop to change the world and make it a better place')
         updateSubheader('Tomoya Kuroda')
         updatePage('/about/')
     },);
@@ -30,7 +30,7 @@ const AboutPage = () => {
     return (
             <Layout>
                 <SEO title="About Me"/>
-                <Container>
+                <Container style={{padding: '2em 0em'}}>
                     <Card.Group centered>
                             <Card>
                                 <Image src={profileImage} wrapped ui={false} />
