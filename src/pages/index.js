@@ -23,7 +23,7 @@ const IndexPage = () => {
     useEffect(() => {
         updateBackground(background)
         updateHeader('Tomoya Kuroda')
-        updateSubheader('Junior Developer')
+        updateSubheader('Software Developer')
         updatePage('/')
     });
     return (
