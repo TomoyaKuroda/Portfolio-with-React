@@ -40,7 +40,7 @@ const AboutPage = () => {
                                         <span className='date'>Started living in Canada since Aug 2017</span>
                                     </Card.Meta>
                                     <Card.Description>
-                                        I am a Georgian College student living in Barrie.
+                                        I am a software developer.
                                         I enjoy watching videos, playing games, and developing web applications.
                                     </Card.Description>
                                 </Card.Content>
