@@ -46,8 +46,7 @@ const IndexPage = () => {
                                     Game, Mountaineering, and Learning!
                                 </Header>
                                 <p style={{fontSize: '1.33em'}}>
-                                    I enjoy playing strategy games such as <a href="https://civilization.com">Civilization</a>. Also I love to climb mountain and take beautiful pictures.
-                                    Moreover, I like to learn skills actively.
+                                    I enjoy developing software and learning new tech.
                                 </p>
                             </Grid.Column>
                             <Grid.Column floated='right' width={6}>
